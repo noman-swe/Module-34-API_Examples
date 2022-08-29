@@ -16,3 +16,16 @@ function displayUsers(data) {
     }
 
 }
+
+/* const loadUsers = () => {
+    fetch('https://randomuser.me/api/?results=5')
+        .then(res => res.json())
+        .then(data => displayBuddies(data))
+}
+
+function displayBuddies(buddiesData){
+    const buddies = buddiesData.results;//object tuk nilam er porer tuk array tai loop korlam
+    for(const buddy of buddies){
+        console.log(buddy.gender);
+    }
+} */

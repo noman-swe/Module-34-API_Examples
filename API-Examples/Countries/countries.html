@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countries</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <header class="d-flex justify-content-evenly align-items-center mt-3">
+            <h2 class="bg-warning p-2 border border-danger rounded">All Countries</h2>
+            <h1 class="fw-semibold bg-secondary px-3 rounded" style="color: tomato; font-size:65px">Where are <span class="text-danger fs-1 fw-bolder">You</span> form??</h1>
+            <button class="btn btn-sm btn-primary" onclick="loadCountries()">Load Countries</button>
+        </header>
+
+        <section>
+            <div id="countries-container" class="d-flex align-content-center  flex-wrap">
+
+            </div>
+        </section>
+    </div>
+
+    <script src="js/countries.js"></script>
+</body>
+
+</html>
