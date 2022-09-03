@@ -3,11 +3,29 @@ const searchFood = () => {
     const searchText = (searchMealField.value);
     // console.log(searchText);
     searchMealField.value = '';
-    
+
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
     // console.log(url);
     fetch(url)
-    .then(res => res.json())
-    .then(data => console.log(data));
-    
+        .then(res => res.json())
+        .then(data => displaySearchResult(data.meals));
+}
+
+const displaySearchResult = (meals) => {
+    const searchResult = document.getElementById('search-result');
+    meals.forEach(meal => {
+        const divCol = document.createElement('div');
+        divCol.classList.add('col');
+        divCol.innerHTML = `
+                <div class="card shadow p-3 mb-5 bg-white rounded">
+                    <img src="${meal.strMealThumb}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">${meal.strMeal}</h5>
+                        <p class="card-text">${meal.strInstructions.slice(0, 200)}</p>
+                    </div>
+                </div>
+        `;
+        searchResult.appendChild(divCol);
+    });
+
 }
