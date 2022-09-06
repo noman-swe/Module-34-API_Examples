@@ -1,8 +1,12 @@
+document.getElementById('error-msg').style.display = 'none';
+
 const searchFood = () => {
     const searchMealField = document.getElementById('search-item');
     const searchText = (searchMealField.value);
     // clear data
     searchMealField.value = '';
+
+    document.getElementById('error-msg').style.display = 'none';
 
     // 
     const nullSearch = document.getElementById('err');
@@ -15,10 +19,17 @@ const searchFood = () => {
         // load data
         fetch(url)
             .then(res => res.json())
-            .then(data => displaySearchResult(data.meals));
+            .then(data => displaySearchResult(data.meals))
+            .catch(error => displayError(error));
+
     }
 
     // console.log(searchText);
+}
+
+// error function
+const displayError = error => {
+    document.getElementById('error-msg').style.display = 'block';
 }
 
 const displaySearchResult = (meals) => {
@@ -28,10 +39,10 @@ const displaySearchResult = (meals) => {
     // searchResult.innerHTML = '';
 
     searchResult.textContent = '';
-        meals.forEach(meal => {
-            const divCol = document.createElement('div');
-            divCol.classList.add('col');
-            divCol.innerHTML = `
+    meals.forEach(meal => {
+        const divCol = document.createElement('div');
+        divCol.classList.add('col');
+        divCol.innerHTML = `
                     <div onclick="loadMealDetails(${meal.idMeal})" class="card shadow p-3 mb-5 bg-white rounded">
                         <img src="${meal.strMealThumb}" class="card-img-top" alt="...">
                         <div class="card-body">
@@ -40,9 +51,9 @@ const displaySearchResult = (meals) => {
                         </div>
                     </div>
             `;
-            searchResult.appendChild(divCol);
-        });
-    }
+        searchResult.appendChild(divCol);
+    });
+}
 
 const loadMealDetails = mealId => {
     // console.log(mealId);
@@ -55,6 +66,9 @@ const loadMealDetails = mealId => {
 const displayMealDetails = (meal) => {
     console.log(meal);
     const displayMealDetailsSection = document.getElementById('display-meal-details');
+
+    displayMealDetailsSection.textContent = '';
+
     const showDetailDiv = document.createElement('div');
     showDetailDiv.innerHTML = `
             <div class="card text-bg-dark shadow p-3 mb-5 bg-white rounded">

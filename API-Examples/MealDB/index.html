@@ -13,7 +13,7 @@
         .details-img {
             height: 700px;
         }
-        
+
         .details-title {
             font-size: 45px;
         }
@@ -32,7 +32,10 @@
     <!-- search bar -->
 
     <!--  -->
-    <p id="err" class="text-center" style="display: none;">No results found!</p>
+    <div class="errors text-center">
+        <p id="error-msg">Something went worng, Please try again later.</p>
+        <p id="err" class="" style="display: none;">No results found!</p>
+    </div>
     <!--  -->
 
     <!-- start show meal details -->
@@ -55,8 +58,8 @@
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
 
-    <!-- <script src="js/meal.js"></script> -->
-    <script src="js/mealDbAsync.js"></script>
+    <script src="js/meal.js"></script>
+    <!-- <script src="js/mealDbAsync.js"></script> -->
 </body>
 
 </html>
