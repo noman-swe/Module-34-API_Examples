@@ -57,14 +57,14 @@ const displaySearchResult = (meals) => {
 
 const loadMealDetails = mealId => {
     // console.log(mealId);
-    const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`
+    const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`;
     fetch(url)
         .then(res => res.json())
         .then(data => displayMealDetails(data.meals[0]));
 }
 
 const displayMealDetails = (meal) => {
-    console.log(meal);
+    // console.log(meal);
     const displayMealDetailsSection = document.getElementById('display-meal-details');
 
     displayMealDetailsSection.textContent = '';
